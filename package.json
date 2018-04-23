@@ -1,19 +1,12 @@
 {
   "name": "api",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "babel-node app/server",
-    "lint": "eslint app",
-    "lint:fix": "eslint --fix app",
-    "dev": "nodemon --exec 'yarn lint && yarn start'",
-    "seed": "babel-node app/seeds",
-    "test": "NODE_ENV=test jest app"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "browser": false
+    "dev": "nodemon --exec npm start",
+    "seed": "babel-node app/seeds"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -22,12 +15,8 @@
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^4.8.0",
-    "eslint-config-google": "^0.9.1",
     "faker": "^4.1.0",
-    "jest": "^21.2.1",
-    "nodemon": "^1.12.1",
-    "supertest": "^3.0.0"
+    "nodemon": "^1.12.1"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",

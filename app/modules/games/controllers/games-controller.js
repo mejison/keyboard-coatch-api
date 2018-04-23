@@ -4,7 +4,8 @@ import pick from 'lodash/pick';
 
 export default {
     async getGamesAll(ctx) {
-        ctx.body = { data: Game.getAll() };
+        const games = await Game.find({}, (err, games) => games );
+        ctx.body = { data : games };
     },
     async create(ctx) {
         const gameData = {

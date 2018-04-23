@@ -14,6 +14,11 @@ const GameSchema = new Schema({
     type: String,
     required: 'Name is required',
   },
+  timer : {
+    type: Number,
+    required: 'Timer is required',
+    default: 60
+  }
 }, {
   timestamps: true,
 });
