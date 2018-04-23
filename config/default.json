@@ -1,0 +1,9 @@
+{
+  "port": 4000,
+  "jwt":{
+    "secret": "secret"
+  },
+  "mongo": {
+    "uri": "mongodb://mjs:knopka100@ds155699.mlab.com:55699/keyboardcatch"
+  }
+}
