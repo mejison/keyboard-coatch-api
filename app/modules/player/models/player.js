@@ -17,7 +17,7 @@ const PlayerSchema = new Schema({
   car: {
     type: Number,
     required: 'Car is required',
-    default : 1,
+    default : 2,
   }
 }, {
   timestamps: true,

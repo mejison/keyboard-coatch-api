@@ -9,13 +9,30 @@ export default {
         ctx.body = { data : games };
     },
     async create(ctx) {
-        const gameData = {
+        const data = {
           ...pick(ctx.request.body, Game.createFields)
         };
     
-        const { _id } = await GameService.createGame(gameData);
+        const { _id } = await GameService.createGame(data);
         const game = await Game.findOne({ _id });
     
+        // ctx.sct.broadcast.emit('game:add', { game });
+        ctx.io.local.emit('game:add', { game });
+
+        let timer = setInterval(() => {
+            if (game.timer) {
+                game.timer = game.timer - 1;
+                game.save();
+
+                ctx.io.local.emit('game:timer', { game });
+                return;
+            }
+            game.hidden = true;
+            game.save();
+            ctx.io.local.emit('game:timer', { game });
+            clearInterval(timer);
+        }, 1000)
+        
         ctx.status = 201;
         ctx.body = { data: game };
     },
